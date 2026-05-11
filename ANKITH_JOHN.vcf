@@ -1,0 +1,14 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:ANKITH JOHN
+N:JOHN;ANKITH;;;
+ORG:Anton Oilfield Services Group
+TITLE:SALES MANAGER
+TEL;TYPE=CELL,VOICE:+965 55 664 919
+EMAIL:ankith.j@antonoil.com
+ADR;TYPE=WORK:;;Kuwait;;;;
+URL:www.aomserv.com
+X-SOCIALPROFILE;TYPE=linkedin:https://www.linkedin.com/company/anton-oss/
+X-SOCIALPROFILE;TYPE=wechat:
+X-SOCIALPROFILE;TYPE=whatsapp:+965 55 664 919
+END:VCARD

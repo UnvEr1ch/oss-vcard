@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LIFEI MA - Business Card</title>
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { min-height: 100vh; background: #f0f0f0; display: flex; align-items: center; justify-content: center; font-family: Arial, Helvetica, sans-serif; padding: 20px; }
+    .card { background: #fff; width: 100%; max-width: 480px; box-shadow: 0 4px 24px rgba(0,0,0,0.12); overflow: hidden; position: relative; }
+    .top-bar { height: 8px; background: linear-gradient(90deg, #1a3a5c 0%, #c41e3a 100%); }
+    .card-header { background: #fff; padding: 36px 36px 32px; border-bottom: 1px solid #e8e8e8; }
+    .logo-photo-row { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 28px; }
+    .logo-box { width: 120px; height: 160px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .company-logo { max-width: 180px; max-height: 240px; object-fit: contain; }
+    .logo-text { font-size: 24px; font-weight: bold; color: #1a3a5c; letter-spacing: 3px; }
+    .photo-frame { width: 120px; height: 160px; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .photo-frame img { width: 100%; height: 100%; object-fit: cover; }
+    .photo-placeholder { color: #ccc; font-size: 42px; }
+    .name-en { font-size: 34px; font-weight: 700; color: #1a3a5c; margin-bottom: 8px; letter-spacing: 0.5px; }
+    .name-zh { font-size: 17px; color: #666; margin-bottom: 22px; letter-spacing: 1.5px; }
+    .info-row { display: flex; gap: 26px; margin-bottom: 16px; flex-wrap: wrap; }
+    .info-block { flex: 1; min-width: 120px; }
+    .info-label { font-size: 9px; color: #999; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 5px; font-weight: 600; }
+    .info-value { font-size: 13.5px; color: #1a3a5c; font-weight: 500; word-break: break-word; }
+    .address-section { margin-top: 18px; padding-top: 18px; border-top: 1px solid #f0f0f0; }
+    .qr-section { background: #fff; padding: 30px 36px 34px; text-align: center; }
+    .qr-frame { display: inline-block; background: white; padding: 12px; border: 1px solid #e0e0e0; cursor: pointer; transition: transform 0.2s; }
+    .qr-frame:hover { transform: scale(1.02); }
+    .qr-hint { margin-top: 12px; font-size: 11px; color: #999; letter-spacing: 0.5px; }
+    .sheet-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 999; align-items: flex-end; justify-content: center; animation: fadeIn 0.3s; }
+    .sheet-overlay.active { display: flex; }
+    .sheet { background: white; border-radius: 24px 24px 0 0; padding: 18px 18px 36px; width: 100%; max-width: 480px; animation: slideUp 0.3s; }
+    .sheet-header { text-align: center; padding: 12px 0 20px; border-bottom: 1px solid #f0f0f0; margin-bottom: 12px; }
+    .sheet-title { font-size: 16px; font-weight: 700; color: #1a3a5c; }
+    .link-btn { display: flex; align-items: center; gap: 13px; padding: 14px 16px; border-radius: 14px; text-decoration: none; font-size: 14px; font-weight: 600; margin-bottom: 10px; transition: all 0.2s; border: 1px solid #e8e8e8; }
+    .link-btn:hover { background: #f5f5f5; transform: translateX(4px); }
+    .btn-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+    .btn-save { background: linear-gradient(135deg, #1a3a5c, #2563a8); color: white; }
+    .btn-wechat { background: #07c160; color: white; }
+    .btn-whatsapp { background: #25d366; color: white; }
+    .btn-phone { background: #4a90e2; color: white; }
+    .btn-email { background: #ea4335; color: white; }
+    .btn-linkedin { background: #0077b5; color: white; }
+    .btn-website { background: #666; color: white; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="top-bar"></div>
+    <div class="card-header">
+      <div class="logo-photo-row"><div class="logo-box"><img src="https://raw.githubusercontent.com/UnvEr1ch/Vcard/main/logo.png" alt="Anton Oilfield Services" class="company-logo"></div><div class="photo-frame"><img src="https://raw.githubusercontent.com/UnvEr1ch/Vcard/main/WPS(43).png" alt="LIFEI MA"></div></div>
+      <div class="name-en">LIFEI MA</div>
+      <div class="name-zh">马立飞</div>
+      <div class="info-row">
+        <div class="info-block"><div class="info-label">Job Title</div><div class="info-value">GENERAL MANAGER</div></div>
+        <div class="info-block"><div class="info-label">Email</div><div class="info-value">malf@antonoil.com</div></div>
+      </div>
+      <div class="info-row">
+        <div class="info-block">
+          <div class="info-label">Mobile</div>
+          <div class="info-value">+86 139 1018 9421</div>
+        </div>
+      </div>
+      <div class="address-section"><div class="info-label">Address</div><div class="info-value">UAE</div></div>
+    </div>
+    <div class="qr-section"><div class="qr-frame" onclick="openSheet()"><div id="qr-main"></div></div><div class="qr-hint">Tap to add contact</div></div>
+  </div>
+  <div class="sheet-overlay" id="contactSheet" onclick="closeSheet(event)">
+    <div class="sheet" onclick="event.stopPropagation()">
+      <div class="sheet-header"><div class="sheet-title">Add Contact</div></div>
+      <a href="LIFEI_MA.vcf" download="LIFEI_MA.vcf" class="link-btn"><div class="btn-icon btn-save">💾</div><div><div style="color: #1a3a5c;">Save to Contacts</div><div style="font-size: 11px; color: #999; font-weight: 400;">Download VCF file</div></div></a>
+      <a href="mailto:malf@antonoil.com" class="link-btn">
+          <div class="btn-icon btn-email">✉️</div>
+          <div><div style="color: #1a3a5c;">Email</div><div style="font-size: 11px; color: #999; font-weight: 400;">malf@antonoil.com</div></div>
+        </a><a href="https://www.linkedin.com/company/anton-oss/" target="_blank" class="link-btn">
+          <div class="btn-icon btn-linkedin">💼</div>
+          <div><div style="color: #1a3a5c;">LinkedIn</div><div style="font-size: 11px; color: #999; font-weight: 400;">View profile</div></div>
+        </a><a href="https://www.aomserv.com" target="_blank" class="link-btn">
+          <div class="btn-icon btn-website">🌐</div>
+          <div><div style="color: #1a3a5c;">Website</div><div style="font-size: 11px; color: #999; font-weight: 400;">www.aomserv.com</div></div>
+        </a>
+    </div>
+  </div>
+  <script>
+    window.onload = function() {
+      const qrText = window.location.href;
+      const qrContainer = document.getElementById('qr-main');
+      if (typeof QRCode !== 'undefined') {
+        new QRCode(qrContainer, { text: qrText, width: 160, height: 160, colorDark: '#1a3a5c', colorLight: '#ffffff' });
+      } else {
+        qrContainer.innerHTML = '<img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=' + encodeURIComponent(qrText) + '" width="160" height="160" alt="QR Code">';
+      }
+      if (!sessionStorage.getItem('visited')) { setTimeout(() => { openSheet(); sessionStorage.setItem('visited', 'true'); }, 500); }
+    };
+    function openSheet() { document.getElementById('contactSheet').classList.add('active'); }
+    function closeSheet(event) { if (event.target.id === 'contactSheet') { document.getElementById('contactSheet').classList.remove('active'); } }
+    function copyWechat(wechatId) { navigator.clipboard.writeText(wechatId).then(() => { alert('WeChat ID copied: ' + wechatId + '\nPlease open WeChat to add friend'); }).catch(() => { alert('WeChat ID: ' + wechatId + '\nPlease copy manually'); }); return false; }
+  </script>
+</body>
+</html>

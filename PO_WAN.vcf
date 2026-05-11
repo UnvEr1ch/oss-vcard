@@ -1,0 +1,15 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:PO WAN
+N:WAN;PO;;;
+ORG:Anton Oilfield Services Group
+TITLE:DEPUTY GENERAL MANAGER
+TEL;TYPE=CELL,VOICE:+235 60 272 471
+TEL;TYPE=CELL,VOICE:+86 152 3859 0075
+EMAIL:wanpo@antonoil.com
+ADR;TYPE=WORK:;;Chad;;;;
+URL:www.aomserv.com
+X-SOCIALPROFILE;TYPE=linkedin:https://www.linkedin.com/company/anton-oss/
+X-SOCIALPROFILE;TYPE=wechat:
+X-SOCIALPROFILE;TYPE=whatsapp:+86 152 3859 0075
+END:VCARD
