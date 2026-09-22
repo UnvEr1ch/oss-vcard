@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JOY - ZhangLong | Business Card</title>
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { min-height: 100vh; padding: 20px; display: flex; align-items: center; justify-content: center; background: #f0f0f0; font-family: Arial, Helvetica, sans-serif; }
+    .card { position: relative; width: 100%; max-width: 480px; overflow: hidden; background: #fff; box-shadow: 0 4px 24px rgba(0,0,0,.12); }
+    .top-bar { height: 8px; background: linear-gradient(90deg,#1a3a5c 0%,#c41e3a 100%); }
+    .card-header { padding: 36px 36px 32px; border-bottom: 1px solid #e8e8e8; }
+    .logo-photo-row { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 28px; }
+    .logo-box { width: 180px; height: 160px; display: flex; align-items: center; justify-content: flex-start; flex-shrink: 0; }
+    .company-logo { max-width: 180px; max-height: 160px; object-fit: contain; }
+    .photo-frame { width: 120px; height: 160px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; overflow: hidden; background: #eef2f6; }
+    .photo-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .name-en { margin-bottom: 8px; color: #1a3a5c; font-size: 34px; font-weight: 700; letter-spacing: .5px; }
+    .name-zh { margin-bottom: 22px; color: #666; font-size: 17px; letter-spacing: 1.5px; }
+    .info-row { display: flex; flex-wrap: wrap; gap: 26px; margin-bottom: 16px; }
+    .info-block { flex: 1; min-width: 120px; }
+    .full-width { flex: 1 1 100%; }
+    .info-label { margin-bottom: 5px; color: #999; font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: .8px; }
+    .info-value { color: #1a3a5c; font-size: 13.5px; font-weight: 500; line-height: 1.45; word-break: break-word; }
+    .address-section { margin-top: 18px; padding-top: 18px; border-top: 1px solid #f0f0f0; }
+    .qr-section { padding: 30px 36px 34px; text-align: center; }
+    .qr-frame { display: inline-block; padding: 12px; cursor: pointer; background: #fff; border: 1px solid #e0e0e0; transition: transform .2s; }
+    .qr-frame:hover { transform: scale(1.02); }
+    .qr-hint { margin-top: 12px; color: #999; font-size: 11px; letter-spacing: .5px; }
+    .sheet-overlay { position: fixed; inset: 0; z-index: 999; display: none; align-items: flex-end; justify-content: center; background: rgba(0,0,0,.5); }
+    .sheet-overlay.active { display: flex; }
+    .sheet { width: 100%; max-width: 480px; max-height: 88vh; padding: 18px 18px 36px; overflow-y: auto; background: #fff; border-radius: 24px 24px 0 0; }
+    .sheet-header { margin-bottom: 12px; padding: 12px 0 20px; text-align: center; border-bottom: 1px solid #f0f0f0; }
+    .sheet-title { color: #1a3a5c; font-size: 16px; font-weight: 700; }
+    .link-btn { display: flex; align-items: center; gap: 13px; margin-bottom: 10px; padding: 14px 16px; color: inherit; font-size: 14px; font-weight: 600; text-decoration: none; border: 1px solid #e8e8e8; border-radius: 14px; transition: all .2s; }
+    .link-btn:hover { background: #f5f5f5; transform: translateX(4px); }
+    .btn-icon { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #fff; font-size: 20px; border-radius: 10px; }
+    .btn-save { background: linear-gradient(135deg,#1a3a5c,#2563a8); }
+    .btn-wechat { background: #07c160; }
+    .btn-whatsapp { background: #25d366; }
+    .btn-phone { background: #4a90e2; }
+    .btn-phone-other { background: #7057b7; }
+    .btn-email { background: #ea4335; }
+    .button-title { color: #1a3a5c; }
+    .button-detail { color: #999; font-size: 11px; font-weight: 400; }
+    @media (max-width: 420px) {
+      .card-header { padding: 28px 24px; }
+      .qr-section { padding: 28px 24px 32px; }
+      .logo-box { width: 150px; }
+      .company-logo { max-width: 150px; }
+      .photo-frame { width: 105px; height: 140px; }
+      .name-en { font-size: 29px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="top-bar"></div>
+    <section class="card-header">
+      <div class="logo-photo-row">
+        <div class="logo-box"><img src="https://raw.githubusercontent.com/UnvEr1ch/Vcard/main/logo.png" alt="Anton Oilfield Services" class="company-logo"></div>
+        <div class="photo-frame"><img src="https://raw.githubusercontent.com/UnvEr1ch/Vcard/main/zhanglong.png" alt="JOY - ZhangLong"></div>
+      </div>
+      <div class="name-en">JOY - ZhangLong</div>
+      <div class="name-zh">Zhang Long</div>
+      <div class="info-row"><div class="info-block full-width"><div class="info-label">Job Title</div><div class="info-value">Manager - Supply Chain</div></div></div>
+      <div class="info-row">
+        <div class="info-block"><div class="info-label">Email</div><div class="info-value">zhanglong2@antonoil.com</div></div>
+        <div class="info-block"><div class="info-label">Mobile</div><div class="info-value">+86 156 1489 9606</div></div>
+      </div>
+      <div class="info-row"><div class="info-block full-width"><div class="info-label">Iraq Mobile</div><div class="info-value">+964 (0) 788 872 3335</div></div></div>
+      <div class="address-section"><div class="info-label">Location</div><div class="info-value">Iraq</div></div>
+    </section>
+    <section class="qr-section"><div class="qr-frame" onclick="openSheet()"><div id="qr-main"></div></div><div class="qr-hint">Tap to add contact</div></section>
+  </main>
+
+  <div class="sheet-overlay" id="contactSheet" onclick="closeSheet(event)">
+    <div class="sheet" onclick="event.stopPropagation()">
+      <div class="sheet-header"><div class="sheet-title">Add Contact</div></div>
+      <a href="#" onclick="downloadVCard(event)" class="link-btn"><div class="btn-icon btn-save">💾</div><div><div class="button-title">Save to Contacts</div><div class="button-detail">Download VCF file</div></div></a>
+      <a href="#" onclick="copyWechat(event,'8615614899606')" class="link-btn"><div class="btn-icon btn-wechat">💬</div><div><div class="button-title">WeChat</div><div class="button-detail">ID: 8615614899606</div></div></a>
+      <a href="https://wa.me/8615614899606" target="_blank" rel="noopener" class="link-btn"><div class="btn-icon btn-whatsapp">📱</div><div><div class="button-title">WhatsApp</div><div class="button-detail">+86 156 1489 9606</div></div></a>
+      <a href="tel:+8615614899606" class="link-btn"><div class="btn-icon btn-phone">📞</div><div><div class="button-title">Call China Mobile</div><div class="button-detail">+86 156 1489 9606</div></div></a>
+      <a href="tel:+9647888723335" class="link-btn"><div class="btn-icon btn-phone-other">📞</div><div><div class="button-title">Call Iraq Mobile</div><div class="button-detail">+964 (0) 788 872 3335</div></div></a>
+      <a href="mailto:zhanglong2@antonoil.com" class="link-btn"><div class="btn-icon btn-email">✉️</div><div><div class="button-title">Email</div><div class="button-detail">zhanglong2@antonoil.com</div></div></a>
+    </div>
+  </div>
+
+  <script>
+    function generateVCard() {
+      return ["BEGIN:VCARD","VERSION:3.0","N:Zhang Long;JOY;;;","FN:JOY - ZhangLong","ORG:Anton Oilfield Services Group","TITLE:Manager - Supply Chain","TEL;TYPE=CELL,VOICE:+8615614899606","TEL;TYPE=WORK,VOICE:+9647888723335","EMAIL;TYPE=INTERNET,WORK:zhanglong2@antonoil.com","ADR;TYPE=WORK:;;;;;;Iraq","END:VCARD"].join("\r\n");
+    }
+    function downloadVCard(event) {
+      event.preventDefault();
+      const blob = new Blob([generateVCard()], {type:"text/vcard;charset=utf-8"});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url; a.download = "JOY_ZHANGLONG.vcf"; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+    }
+    function openSheet() { document.getElementById("contactSheet").classList.add("active"); }
+    function closeSheet(event) { if (event.target.id === "contactSheet") document.getElementById("contactSheet").classList.remove("active"); }
+    function copyWechat(event,id) {
+      event.preventDefault();
+      navigator.clipboard.writeText(id).then(() => alert("WeChat ID copied: " + id)).catch(() => alert("WeChat ID: " + id));
+    }
+    window.addEventListener("load", function() {
+      const box = document.getElementById("qr-main");
+      const text = window.location.href;
+      if (typeof QRCode !== "undefined") new QRCode(box,{text:text,width:160,height:160,colorDark:"#1a3a5c",colorLight:"#ffffff",correctLevel:QRCode.CorrectLevel.H});
+      else box.innerHTML = '<img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=' + encodeURIComponent(text) + '" width="160" height="160" alt="QR Code">';
+    });
+  </script>
+</body>
+</html>
